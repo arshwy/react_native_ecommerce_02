@@ -32,3 +32,10 @@
  * A cross-platform Tab View component for React Native.
  * >> npm i react-native-tab-view
  */
+
+/**react-native-swipe-list-view
+ * <SwipeListView> is a vertical ListView with rows that swipe open and closed. 
+ * Handles default native behavior such as closing rows when ListView is scrolled 
+ * or when other rows are opened.
+ * >> npm i react-native-swipe-list-view
+ */
