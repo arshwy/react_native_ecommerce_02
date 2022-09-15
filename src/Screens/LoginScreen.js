@@ -1,5 +1,5 @@
-import { Box, Button, Heading, Input, VStack, Checkbox } from 'native-base'
 import React, { useState } from 'react'
+import { Box, Button, Heading, Input, VStack, Checkbox } from 'native-base'
 import { View, Text, Image, StyleSheet, Pressable } from 'react-native'
 import Colors from "../colors"
 import { MaterialIcons, Ionicons } from '@expo/vector-icons';

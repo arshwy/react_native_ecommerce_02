@@ -47,6 +47,7 @@ const Profile = () => {
             </FormControl>
           ))}
         <Button_ 
+          mt={3}
           bg={Colors.black} 
           color={Colors.white}>
           SAVE CHANGES
