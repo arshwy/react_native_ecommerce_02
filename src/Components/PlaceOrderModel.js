@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 import { Text, Button, Center, HStack, Modal, VStack } from 'native-base';
 import Colors from '../colors';
 import Button_ from './Button';
+import { useNavigation } from '@react-navigation/native';
 
 
 
@@ -15,7 +16,12 @@ const OrdersInfo = [
 
 const PlaceOrderModel = () => {
     const [showModel, setShowModel] = useState(false);
+    const nav = useNavigation();
 
+    const handleOnPressOrder = () => {
+        setShowModel(false)
+        nav.navigate("Order")
+    }
   return (
     <Center w={"full"}>
         <Button_ 
@@ -59,7 +65,7 @@ const PlaceOrderModel = () => {
                         color={Colors.white}
                         h={45}
                         _text={{color: Colors.white}}
-                        onPress={()=>setShowModel(false)}
+                        onPress={handleOnPressOrder}
                         _pressed={{bg:Colors.main,}}>
                         PLACE AN ORDER
                     </Button_>

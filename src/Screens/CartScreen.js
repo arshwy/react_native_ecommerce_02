@@ -1,3 +1,4 @@
+import { useNavigation } from '@react-navigation/native'
 import { Box, Button, Center, HStack, ScrollView, Text } from 'native-base'
 import React from 'react'
 import Colors from '../colors'
@@ -6,8 +7,9 @@ import CartEmpty from '../Components/CartEmpty'
 import CartItems from '../Components/CartItems'
 import products from '../data/Products'
 
-const CartScreen = () => {
+const CartScreen = ({navigation}) => {
 
+  const nav = useNavigation();
   const addedItems = [
     products[0],
     products[1],
@@ -21,17 +23,20 @@ const CartScreen = () => {
       {
         cartItems.length ? 
         <>
-          <Center w="full" py={5}>
-            <Text 
-              color={Colors.black} 
-              fontSize={20}
-              bold>
-              Cart
-            </Text>
-          </Center>
+          <Box 
+            w="full"
+            bg={Colors.main} 
+            pt={6} 
+            mb={10}
+            safeAreaTop>
+            <Center pb={15}>
+              <Text color={Colors.white} fontSize={16} bold>
+                CART
+              </Text>
+            </Center>
+          </Box>
           <ScrollView
-            showsVerticalScrollIndicator={false}
-          >
+            showsVerticalScrollIndicator={false}>
             <CartItems />
             {/* Total */}
             <Center mt={5}>
@@ -66,7 +71,10 @@ const CartScreen = () => {
             {/* Checkout */}
             <Center px={5}>
               <Button_
-                bg={Colors.black} color={Colors.white} my={10}>
+                bg={Colors.black} 
+                color={Colors.white} 
+                my={10}
+                onPress={()=>nav.navigate("Shipping")}>
                 CHECKOUT
               </Button_>
             </Center>

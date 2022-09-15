@@ -5,10 +5,10 @@ import Colors from '../colors'
 import HomeProducts from '../Components/HomeProducts'
 import HomeSearch from '../Components/HomeSearch'
 
-const HomeScreen = () => {
+const HomeScreen = ({navigation}) => {
   return (
     <Box flex={1} bg={Colors.subGreen}>
-        <HomeSearch />
+        <HomeSearch navigation={navigation}/>
         <HomeProducts />
     </Box>
   )

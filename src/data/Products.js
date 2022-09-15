@@ -17,7 +17,7 @@ const products = [
         image: require("../../assets/images/2.png"),
         description: "Half boot shoe, dark brown for men, Half boot shoe, dark brown for men, Half boot shoe, dark brown for men, Half boot shoe, dark brown for men, Half boot shoe, dark brown for men, Half boot shoe, dark brown for men",
         price: "60",
-        countInStock: "13",
+        countInStock: "0",
         rating: "4.5",
         numReviews: "18",
     },

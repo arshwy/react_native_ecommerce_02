@@ -6,11 +6,14 @@ import Rating from '../Components/Rating'
 import NumericInput from "react-native-numeric-input"
 import Button_ from '../Components/Button'
 import Review from '../Components/Review'
+import { useNavigation } from '@react-navigation/native'
 
 
 
-const SingleProductScreen = () => {
+const SingleProductScreen = ({route}) => {
   const [orderCount, setOrderCount] = useState(0)
+  const nav = useNavigation()
+  const product = route.params
 
   return (
     <Box safeArea flex={1} bg={Colors.white}>
@@ -19,7 +22,7 @@ const SingleProductScreen = () => {
         showsVerticalScrollIndicator={false}
       >
         <Image 
-          source={require("../../assets/images/1.png")}
+          source={product.image}
           alt="Image"
           w="full"
           h={300}
@@ -29,50 +32,56 @@ const SingleProductScreen = () => {
           fontSize={16} 
           mb={2} 
           lineHeight={22}>
-          New Adidas shoe from store
+          {product.name}
         </Heading>
-        <Rating value={3.5}/>
+        <Rating 
+          value={product.rating}
+          text={product.numReviews}/>
         <HStack 
           space={2} 
           alignItems="center" 
-          my={5}
-        >
-          <NumericInput 
-            value={orderCount} 
-            totalWidth={140} 
-            totalHeight={40}
-            iconSize={25}
-            step={1}
-            maxValue={15}
-            minValue={0}
-            borderColor={Colors.deepGray}
-            rounded 
-            textColor={Colors.black}
-            rightButtonBackgroundColor={Colors.main}
-            leftButtonBackgroundColor={Colors.main}
-          />
+          my={5}>
+          {
+            product.countInStock > 0 ? 
+              <NumericInput 
+                value={orderCount} 
+                totalWidth={140} 
+                totalHeight={40}
+                iconSize={25}
+                step={1}
+                maxValue={product.countInStock}
+                minValue={0}
+                borderColor={Colors.deepGray}
+                rounded 
+                textColor={Colors.black}
+                rightButtonBackgroundColor={Colors.main}
+                leftButtonBackgroundColor={Colors.main}
+              /> :
+            <Text 
+              bold
+              italic 
+              color={Colors.red}>
+              Not Available in Stock
+            </Text>
+          }
           <Spacer/>
           <Heading  bold color={Colors.black} fontSize={19}>
-            $400
+            ${product.price}
           </Heading>
         </HStack>
         <Text lineHeight={24} fontSize={14}>
-          This prop can also contain several remote URLs, 
-          specified together with their width and height and potentially with scale/other URI arguments. 
-          The native side will then choose the best uri to display based on the measured size of the image container. 
-          A cache property can be added to control how networked request interacts with the local cache.
-          (For more information see Cache Control for Images).
-          This prop can also contain several remote URLs, 
-          specified together with their width and height and potentially with scale/other URI arguments. 
-          The native side will then choose the best uri to display based on the measured size of the image container. 
+          {product.description}
         </Text>
-        <Button_ 
-          color={Colors.white} 
-          bg={Colors.main} 
-          mt={10}
-        >
-          ADD TO CART
-        </Button_>
+        {
+          product.countInStock > 0 ? 
+          <Button_ 
+            onPress={nav.navigate("Cart")}
+            color={Colors.white} 
+            bg={Colors.main} 
+            mt={10}>
+            ADD TO CART
+          </Button_> : null
+        }
         <Review />
       </ScrollView>
     </Box>

@@ -1,3 +1,4 @@
+import { useNavigation } from '@react-navigation/native'
 import { Box, Center, CheckIcon, FormControl, Heading, Select, Text, TextArea, VStack } from 'native-base'
 import React, { useState } from 'react'
 import Colors from '../colors'
@@ -10,6 +11,7 @@ const Review = () => {
     const reviewsCount = 1;
     const [rating, setRating] = useState(null)
     const [comment, setComment] = useState(null)
+    const nav = useNavigation()
 
     const handleRatingSelection = (value) => {
         setRating(value)
@@ -23,7 +25,7 @@ const Review = () => {
         console.log("submitting comment review ...");
     }
     const toLoginPage = () => {
-        console.log("naviagting to login screen ...")
+        nav.navigate("Login")
     }
 
     const isLoggedin = false;

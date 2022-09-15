@@ -4,6 +4,7 @@ import { View } from 'react-native'
 import Colors from '../colors'
 import Button_ from "../Components/Button"
 import { Ionicons, FontAwesome } from '@expo/vector-icons';
+import { useNavigation } from '@react-navigation/native'
 
 const PaymentMethods = [
   {
@@ -25,6 +26,7 @@ const PaymentMethods = [
 
 
 const PaymentScreen = () => {
+  const nav = useNavigation();
   return (
     <Box flex={1} safeAreaTop bg={Colors.main} py={5}>
 
@@ -72,7 +74,8 @@ const PaymentScreen = () => {
                     
                   </HStack>
                 ))}
-                <Button_ 
+                <Button_
+                  onPress={()=>nav.navigate("Placeorder")} 
                   mt={3}
                   bg={Colors.black} 
                   color={Colors.white}>

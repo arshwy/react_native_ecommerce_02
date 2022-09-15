@@ -77,7 +77,7 @@ const OrderModel = () => {
                         _text={{color: Colors.white}}
                         onPress={()=>setShowModel(false)}
                         _pressed={{bg:Colors.black,}}>
-                        CLOSE
+                        PAY LATER
                     </Button>
                 </Modal.Footer>
             </Modal.Content>

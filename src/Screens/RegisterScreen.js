@@ -5,7 +5,7 @@ import Colors from "../colors"
 import { MaterialIcons, Ionicons } from '@expo/vector-icons';
 import { FontAwesome } from '@expo/vector-icons';
 
-const RegisterScreen = () => {
+const RegisterScreen = ({navigation}) => {
 
   const [name, setName] = useState("")
   const [email, setEmail] = useState("")
@@ -35,6 +35,7 @@ const RegisterScreen = () => {
     console.log("name: ", name)
     console.log("email: ", email)
     console.log("password: ", password)
+    navigation.navigate("Bottom")
   }
 
   return (
@@ -127,7 +128,7 @@ const RegisterScreen = () => {
             <Text
               style={styles.signupText} 
               size="sm"
-            >
+              onPress={()=>navigation.navigate("Login")}>
               LOG IN
             </Text>
           </Pressable>

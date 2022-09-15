@@ -5,12 +5,15 @@ import {
 import Colors from '../colors'
 import products from "../data/Products"
 import Rating from './Rating'
+import { useNavigation } from '@react-navigation/native'
 
 
 const HomeProducts = () => {
 
-  const handleOnPress = (p) => {
-    console.log("Press on product: ", p.name, " id: ", p._id)
+  const nav = useNavigation()
+
+  const handleOnPress = (product) => {
+    nav.navigate("Single", product);
   }
 
   return (

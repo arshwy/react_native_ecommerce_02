@@ -4,7 +4,7 @@ import { View, Text, Image, StyleSheet, Pressable } from 'react-native'
 import Colors from "../colors"
 import { MaterialIcons, Ionicons } from '@expo/vector-icons';
 
-const LoginScreen = () => {
+const LoginScreen = ({navigation}) => {
 
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
@@ -22,6 +22,7 @@ const LoginScreen = () => {
     console.log("logging in ...")
     console.log("email: ", email)
     console.log("password: ", password)
+    navigation.navigate("Bottom")
   }
   const togglePaswordType = () => {
     if (passwordType == "password") {
@@ -103,7 +104,9 @@ const LoginScreen = () => {
           >
             LOGIN
           </Button>
-          <Pressable mt={4}>
+          <Pressable 
+            mt={4}
+            onPress={()=>navigation.navigate("Register")}>
             <Text
               style={styles.signupText} 
               size="sm"

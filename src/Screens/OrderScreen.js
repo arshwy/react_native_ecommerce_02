@@ -26,7 +26,10 @@ const OrderScreen = () => {
         </Box>
         
         <Box mt={5} w="full">
-          <ScrollView w="full" horizontal={true} showsHorizontalScrollIndicator={false}>
+          <ScrollView 
+            w="full" 
+            horizontal={true} 
+            showsHorizontalScrollIndicator={false}>
             <OrderInfo 
               success
               title="SHIPPING INFO"
